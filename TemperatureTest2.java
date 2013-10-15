@@ -70,9 +70,9 @@ public class TemperatureTest2 {
 		Temperature k2c = new Temperature (15, Temperature.Units.KELVIN);
 		assertEquals("should return -258.15", -258.15, k2c.changeUnits(Temperature.Units.CELSIUS), RANGE);
 		
-		//Kelvin to Fahrenheit
-		Temperature k2f = new Temperature (15, Temperature.Units.KELVIN);
-		assertEquals("should return -432.67", -432.67, k2f.changeUnits(Temperature.Units.FAHRENHEIT), RANGE);
+		//Kelvin to Fahrenheit, boundary Kelvin value
+		Temperature k2f = new Temperature (0.0, Temperature.Units.KELVIN);
+		assertEquals("should return -459.67", -459.67, k2f.changeUnits(Temperature.Units.FAHRENHEIT), RANGE);
 		
 		//Fahrenheit to Celsius, precision test
 		Temperature f2c = new Temperature (15, Temperature.Units.FAHRENHEIT);
