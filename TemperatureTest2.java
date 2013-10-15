@@ -58,7 +58,7 @@ public class TemperatureTest2 {
 	public void testChangeUnits() {
 		//changeUnits() changed to return the new value of the changed unit
 		
-		//Celsius to Fahrenheit, negative input test
+		//Celsius to Fahrenheit
 		Temperature c2f = new Temperature (15.0, Temperature.Units.CELSIUS);
 		assertEquals("should return 59", 59.0, c2f.changeUnits(Temperature.Units.FAHRENHEIT), RANGE);
 		 
