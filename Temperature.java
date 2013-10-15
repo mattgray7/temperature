@@ -28,6 +28,7 @@ public class Temperature {
   public static enum Units { FAHRENHEIT, CELSIUS, KELVIN }
 
   private final double valueInKelvin;
+
   private Units units;
 
   /**
@@ -38,6 +39,11 @@ public class Temperature {
   public Temperature (double value, Temperature.Units units) {
       this.units    = units;
       valueInKelvin = convertToKelvin(value);
+      
+      if (valueInKelvin < 0){
+    	  throw new IllegalArgumentException("Kelvin temperature cannot be represented by a negative value");
+      }
+      
   }
 
   /**
@@ -131,8 +137,9 @@ public class Temperature {
    * in a consistent manner.
    * @param units the new {@code Units} 
    */
-  public void changeUnits(Units units) {
+  public double changeUnits(Units units) {
       this.units = units;
+      return convertFromKelvin(valueInKelvin);
   }
 
   /** 
